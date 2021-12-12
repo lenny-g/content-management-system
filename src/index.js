@@ -1,27 +1,16 @@
-const mysql = require("mysql2");
 const inquirer = require("inquirer");
 
-const connectionProperties = {
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "cms",
+const Db = require("./utils/Db");
+const actionQuestions = require("./utils/questions");
+
+const start = async () => {
+  const db = new Db({
+    host: process.envDB_HOST || "localhost",
+    user: process.envDB_USER || "root",
+    password: process.envDB_PASSWORD || "Password123!!",
+    database: process.envDB_NAME || "company_db",
+  });
 };
 
-const connection = mysql.createConnection(connectionProperties);
-
-const departmentQuestions = [
-  {
-    type: "number",
-    name: "id",
-    message: "What is your id?",
-  },
-  {
-    type: "input",
-    name: "name",
-    message: "What is your name",
-  },
-];
-
-const roleQuestions = [];
+await db.start();
+start();
