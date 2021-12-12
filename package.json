@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lenny-g/content-management-system#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "inquirer": "^8.2.0",
     "mysql2": "^2.3.3"
   }
