@@ -8,6 +8,9 @@ VALUES ('Finance'),
 ('Marketing'),
 ('Sales');
 
+
+
+
 -- insert jobRole
 INSERT INTO jobRole (title, salary, departmentId) VALUES 
 ('Accountant', 42500.00, 1),

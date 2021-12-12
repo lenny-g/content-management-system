@@ -4,6 +4,7 @@ USE company_db;
 -- view all departments
 SELECT * FROM department;
 
+
 -- view all roles
 SELECT * FROM jobRole
 
@@ -26,6 +27,8 @@ INSERT INTO jobRole (title, salary, departmentId) VALUES("${title}", ${salary}, 
 
 -- add new department
 INSERT INTO department (name) VALUES("${newDepartment}")
+
+
 
 -- update employee role
 UPDATE employee SET jobRoleId = ${jobRoleId} WHERE id = ${id}

@@ -163,7 +163,8 @@ const start = async () => {
     }
 
     if (chosenAction === "viewDepartments") {
-      const departments = await db.query(`SELECT * FROM department;`);
+      const departments = await db.query(`SELECT * FROM department 
+      `);
       console.table(departments);
     }
 
@@ -179,7 +180,8 @@ const start = async () => {
       const { newDepartment } = await inquirer.prompt(departmentQuestions);
 
       await db.query(
-        `INSERT INTO department (name) VALUES("${newDepartment}")`
+        `INSERT INTO department (name) VALUES("${newDepartment}")
+         `
       );
       console.log(`Added ${newDepartment} to the database`);
     }
