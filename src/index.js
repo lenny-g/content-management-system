@@ -18,10 +18,15 @@ const start = async () => {
   while (inProgress) {
     const { chosenAction } = await inquirer.prompt(actionQuestions);
     if (chosenAction === "viewEmployee") {
-      console.log("viewEmployees");
+      const employees = await db.query(`
+      SELECT CONCAT(e.firstName,' ', e.lastName) AS 'USER', j.salary, j.title, d.name,
+      CONCAT( m.firstName,' ',  m.lastName) AS MANAGER
+      FROM employee AS e JOIN employee AS m ON e.managerId = m.id INNER JOIN jobRole j ON e.jobRoleId = j.id LEFT JOIN department d ON j.departmentId = d.id ;`);
+      console.table(employees);
     }
 
     if (chosenAction === "addEmployee") {
+      console.log("addEmployee");
     }
 
     if (chosenAction === "updateEmployeeDepartment") {
@@ -29,7 +34,11 @@ const start = async () => {
     }
 
     if (chosenAction === "viewRoles") {
-      console.log("viewRoles");
+      const roles =
+        await db.query(`SELECT jobRole.title, department.name, jobRole.salary FROM jobRole JOIN department ON jobRole.departmentId = department.id ORDER BY department.name;
+
+      `);
+      console.table(roles);
     }
 
     if (chosenAction === "addRoles") {
@@ -37,7 +46,8 @@ const start = async () => {
     }
 
     if (chosenAction === "viewDepartments") {
-      console.log("viewDepartments");
+      const departments = await db.query(`SELECT * FROM department;`);
+      console.table(departments);
     }
 
     if (chosenAction === "addDepartment") {
