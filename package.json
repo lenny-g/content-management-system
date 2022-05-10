@@ -1,0 +1,25 @@
+{
+  "name": "content-management-system",
+  "version": "1.0.0",
+  "description": "build a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenny-g/content-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lenny-g/content-management-system/issues"
+  },
+  "homepage": "https://github.com/lenny-g/content-management-system#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  }
+}
